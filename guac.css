@@ -1,0 +1,337 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital@1&family=Oswald&display=swap');
+
+body {
+    background-color: #588157;
+    color: #EFE5DC;
+    font-family: 'Oswald' , sans-serif;
+    font-size: 50px;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+p {
+    font-family: 'Lora' , serif;
+    font-size: 30px;
+}
+
+@media screen and (max-width: 600px) {
+    h1 {
+        font-size: 35px;
+        padding: 10px;
+    }
+
+    p {
+        font-size: 23px;
+        margin-top: -5px;
+        text-align: center;
+    }
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .avocado, 
+    .onion,
+    .lime,
+    .tomato {
+        max-width: 10%;
+    }
+
+    .video {
+        position: relative;
+        overflow-x: hidden;
+        width: 100%;
+        padding-top: 75%;
+    }
+    
+    .video iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 98;
+}
+
+.a {
+    background-color: #183642;
+    color: #EFE5DC;
+    position: absolute;
+    margin-left: 10px;
+    margin-top: 10px;
+    text-decoration: none;
+    border-radius: 100px;
+    height: 54px;
+    display: inline-flex;
+    align-items: center;
+    overflow: hidden;
+    width: auto;
+    max-width: 54px;
+    -webkit-transition: max-width 0.5s;
+    transition: max-width 0.5s;
+    box-shadow: 5px 5px #1e4c5f;
+}
+
+.a:hover {
+    max-width: 300px;
+}
+
+.icon {
+    font-size: 20px;
+    margin-right: 10px;
+    margin-left: 5px;
+    padding: 8px 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text {
+    white-space: nowrap;
+    padding-right: 15px;
+    margin-right: 8px;
+    font-size: 20px;
+    font-family: 'Lora', serif;
+}
+
+.combine {
+    margin-bottom: -10px;
+}
+
+.congrats {
+    margin-bottom: -50px;
+}
+
+section {
+    display: grid;
+    place-items: center;
+    align-content: center;
+    width: 100%;
+    min-height: 100vh;
+}
+
+/*icon and text animation*/
+
+.hidden {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(-100%);
+    transition: all 1s;
+}
+
+@media(prefers-reduced-motion) {
+    .hidden {
+        transition: none;
+    }
+}
+
+.show {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.avocado, 
+.onion, 
+.lime, 
+.tomato {
+    max-width: 100%;
+}
+
+.img:nth-child(2) {
+    transition-delay: 200ms;
+}
+.img:nth-child(3) {
+    transition-delay: 400ms;
+}
+.img:nth-child(4) {
+    transition-delay: 600ms;
+}
+
+@keyframes shake {
+    0% { transform: translate(-1px, 9px) rotate(14deg); }
+    33% { transform: translate(-1px, 11px) rotate(16deg); }
+    66% { transform: translate(1px, 11px) rotate(14deg); }
+    100% { transform: translate(1px, 9px) rotate(16deg); }
+}
+.avocado:hover {
+    animation: shake .16s infinite alternate;
+    cursor: not-allowed;
+}
+.onion:hover {
+    animation: shake .16s infinite alternate;
+    cursor: not-allowed;
+}
+.lime:hover {
+    animation: shake .16s infinite alternate;
+    cursor: not-allowed;
+}
+.tomato:hover {
+    animation: shake .16s infinite alternate;
+    cursor: not-allowed;
+}
+
+footer {
+    position: relative;
+}
+
+button,
+a.button {
+    color: #EFE5DC;
+    position: absolute;
+    right: 15px; bottom: 15px;
+    padding: 0.7em 1.7em;
+    font-family: 'Lora' , serif;
+    font-size: 15px;
+    border-radius: 0.5em;
+    background: #588157;
+    border: 1px solid #588157;
+    transition: all .3s;
+    box-shadow: 6px 6px 12px #4b6e4a,
+                -6px -6px 12px #659464;
+}
+
+   
+button:hover {
+    cursor: pointer;
+}
+   
+button:active {
+    box-shadow: inset 20px 20px 60px #4b6e4a,
+                inset -20px -20px 60px #659464;
+}
+
+a.button {
+    position: relative;
+    margin: 0;
+}
+
+a.button:hover {
+    cursor: pointer;
+}
+
+a.button:active {
+    box-shadow: inset 20px 20px 60px #4b6e4a,
+                inset -20px -20px 60px #659464;
+}
+
+/* TODO: overlay on whole page while the animation is on */
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 99;
+}
+
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: #183642;
+    border-radius: 20px;
+    box-shadow: 5px 5px #1e4c5f;
+    width: 30%;
+    position: relative;
+    transition: all 2s ease-in-out;
+}
+
+.popup .close {
+    position: absolute;
+    top: 10px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 50px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #EFE5DC;
+}
+
+h2 {
+    display: flex;
+    justify-content: center;
+    font-family: 'Lora', serif;
+    font-size: 20px;
+}
+
+
+.video {
+    --border-radius: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 0 6px rgb(0 0 0 / 50%);
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+iframe {
+    clip-path: inset(0% 0% 0% 0% round var(--border-radius));
+}
+
+/*last image*/
+#guac {
+    position: relative;
+    width: 50%;
+}
+
+.fade {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.guac {
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+    border-radius: 30px;
+    border: 5px solid #1e4c5f;
+}
+
+#guac:hover .guac {
+    opacity: 0.4;
+}
+#guac:hover .fade {
+    opacity: 1;
+}
+.fadetxt {
+    background-color: #588157;
+    color: #EFE5DC;
+    font-family: 'Lora', serif;
+    font-size: 20px;
+    padding: 16px 32px;
+}
