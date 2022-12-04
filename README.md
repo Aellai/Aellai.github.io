@@ -1,2 +1,2 @@
-# Aellai.github.io
-Follow the recipe at your own risk. 
+# [Aellai.github.io](Aellai.github.io)
+Follow this recipe at your own risk.
